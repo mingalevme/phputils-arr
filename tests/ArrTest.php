@@ -43,8 +43,8 @@ class ArrTest extends TestCase
                 'bar3' => 'foo3',
             ],
         ];
-        $this->assertTrue(Arr::hasObjectWithKey($input, 'bar2'));
-        $this->assertFalse(Arr::hasObjectWithKey($input, 'bar4'));
+        $this->assertTrue(array_has_object_with_key($input, 'bar2'));
+        $this->assertFalse(array_has_object_with_key($input, 'bar4'));
     }
 
     public function testGetObjectWithKeyAndValue()
@@ -65,7 +65,7 @@ class ArrTest extends TestCase
         ];
 
         $this->assertSame(['foo2' => 'bar2', 'bar2' => 'foo2'],
-            Arr::getObjectWithKeyAndValue($input, 'bar2', 'foo2'));
+            array_get_object_with_key_and_value($input, 'bar2', 'foo2'));
     }
 
     public function testHasObjectWithKeyAndValue()
@@ -84,13 +84,13 @@ class ArrTest extends TestCase
                 'bar3' => 'foo3',
             ],
         ];
-        $this->assertTrue(Arr::hasObjectWithKeyAndValue($input, 'bar2', 'foo2'));
-        $this->assertFalse(Arr::hasObjectWithKeyAndValue($input, 'bar4', 'foo4'));
+        $this->assertTrue(array_has_object_with_key_and_value($input, 'bar2', 'foo2'));
+        $this->assertFalse(array_has_object_with_key_and_value($input, 'bar4', 'foo4'));
     }
 
     public function testToString()
     {
-        $this->assertSame('foo1: bar1, bar1: foo1', Arr::toString([
+        $this->assertSame('foo1: bar1, bar1: foo1', array_to_string([
             'foo1' => 'bar1',
             'bar1' => 'foo1'
         ], ': ', ', '));
